@@ -1,0 +1,58 @@
+.page {
+  padding: 5rem 0 3rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 28rem);
+  gap: 1rem;
+  padding: 3rem 0;
+  align-items: center;
+}
+
+.hero p {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero span {
+  display: block;
+  max-width: 40rem;
+  margin-top: 1rem;
+  color: var(--color-text-soft);
+  line-height: 1.7;
+}
+
+.visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 26rem;
+}
+
+.visual img {
+  object-fit: cover;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.grid article {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.grid h2 {
+  font-size: 1.35rem;
+}
+
+@media (max-width: 920px) {
+  .hero,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

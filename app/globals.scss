@@ -1,0 +1,82 @@
+:root {
+  --color-bg: #0c0e10;
+  --color-surface-low: #111416;
+  --color-surface: #161a1e;
+  --color-surface-high: #20262c;
+  --color-text: #e0e6ed;
+  --color-text-soft: #999fa4;
+  --color-line: rgba(112, 118, 125, 0.2);
+  --color-primary: #c6c6c7;
+  --color-on-primary: #3f4041;
+  --radius-md: 0.45rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --container: 72rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top right, rgba(198, 198, 199, 0.12), transparent 25%),
+    var(--color-bg);
+  color: var(--color-text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(3.8rem, 11vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+p {
+  color: var(--color-text-soft);
+  line-height: 1.7;
+}
+
+.container {
+  width: min(calc(100% - 2rem), var(--container));
+  margin: 0 auto;
+}
+
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+}

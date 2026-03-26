@@ -1,0 +1,175 @@
+.hero {
+  padding: 5rem 0 3rem;
+}
+
+.heroGrid,
+.aboutGrid,
+.timeline,
+.youtubeTop,
+.form {
+  display: grid;
+  gap: 2rem;
+}
+
+.heroGrid,
+.aboutGrid,
+.timeline {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+}
+
+.copy,
+.stack,
+.newsletterCopy {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.lead {
+  max-width: 36rem;
+  font-size: 1.05rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.visual,
+.portrait,
+.sideVisual {
+  position: relative;
+  overflow: hidden;
+  min-height: 24rem;
+}
+
+.visual img,
+.portrait img,
+.sideVisual img {
+  object-fit: cover;
+}
+
+.visual::after,
+.portrait::after,
+.sideVisual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(12, 14, 16, 0.02), rgba(12, 14, 16, 0.18)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 45%);
+  pointer-events: none;
+}
+
+.timelineItem {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.timelineItem strong,
+.videoBody span {
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.youtubeTop {
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  margin-bottom: 2rem;
+}
+
+.youtubeTop p {
+  max-width: 34rem;
+}
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.videoCard {
+  overflow: hidden;
+}
+
+.videoCard img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--color-surface-high);
+}
+
+.videoBody {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.videoBody h3 {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.newsletter {
+  display: grid;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.newsletterCopy {
+  justify-items: center;
+}
+
+.newsletterCopy p {
+  max-width: 38rem;
+}
+
+.form {
+  grid-template-columns: 1fr auto;
+  width: min(100%, 34rem);
+  margin: 0 auto;
+}
+
+.form input {
+  min-height: 2.9rem;
+  padding: 0 1rem;
+  color: var(--color-text);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.notice {
+  padding: 0.85rem 1rem;
+  color: var(--color-text);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 920px) {
+  .heroGrid,
+  .aboutGrid,
+  .timeline,
+  .youtubeTop,
+  .videoGrid,
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .videoGrid {
+    gap: 1rem;
+  }
+}

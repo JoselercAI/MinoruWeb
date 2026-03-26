@@ -1,0 +1,24 @@
+.section {
+  padding: clamp(5rem, 8vw, 8.5rem) 0;
+}
+
+.muted {
+  background: var(--color-surface-low);
+}
+
+.heading {
+  max-width: 38rem;
+  margin-bottom: 3rem;
+}
+
+.eyebrow {
+  margin-bottom: 1rem;
+  color: var(--color-text-soft);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.heading h2 {
+  margin: 0;
+}

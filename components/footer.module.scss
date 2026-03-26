@@ -1,0 +1,31 @@
+.footer {
+  padding: 2rem 0 3rem;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.inner p,
+.links a {
+  color: var(--color-text-soft);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 720px) {
+  .inner,
+  .links {
+    flex-direction: column;
+  }
+}
