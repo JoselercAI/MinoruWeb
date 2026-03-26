@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Section } from "@/components/Section";
+import { getNewsletterMessage } from "@/lib/newsletter";
 import { about, site, timeline } from "@/lib/site";
 import { getYoutubeVideos } from "@/lib/youtube";
 import styles from "./page.module.scss";
@@ -11,18 +12,10 @@ type Props = {
   searchParams?: Promise<{ newsletter?: string }>;
 };
 
-const newsletterState = {
-  success: "Te has suscrito correctamente.",
-  error: "No hemos podido procesar tu suscripción.",
-  missing: "Falta configurar Beehiiv para activar el formulario real.",
-};
-
 export default async function Home({ searchParams }: Props) {
   const params = (await searchParams) ?? {};
   const videos = await getYoutubeVideos();
-  const message = params.newsletter
-    ? newsletterState[params.newsletter as keyof typeof newsletterState]
-    : null;
+  const message = getNewsletterMessage(params.newsletter);
 
   return (
     <>
@@ -42,7 +35,7 @@ export default async function Home({ searchParams }: Props) {
                 documentar y compartir lo que de verdad funciona.
               </p>
               <div className={styles.actions}>
-                <Button href="#newsletter">Newsletter</Button>
+                <Button href="/newsletter">Newsletter</Button>
                 <Button href="/contacto" kind="ghost">
                   Página de contacto
                 </Button>

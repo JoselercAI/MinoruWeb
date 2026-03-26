@@ -28,4 +28,15 @@
   .links {
     flex-direction: column;
   }
+
+  .links {
+    order: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0 0.75rem;
+  }
+
+  .inner p {
+    order: 2;
+  }
 }
