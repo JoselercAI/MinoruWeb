@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/Button";
 import { Footer } from "@/components/Footer";
+import { NewsletterForm } from "@/components/NewsletterForm";
 import { getNewsletterMessage } from "@/lib/newsletter";
 import { site } from "@/lib/site";
 import styles from "./page.module.scss";
@@ -43,11 +43,11 @@ export default async function NewsletterPage({ searchParams }: Props) {
                 <li>Actualizaciones directas, sin humo.</li>
               </ul>
             </div>
-            <form action="/api/newsletter" className={styles.form} method="post">
-              <input type="hidden" name="redirect" value="/newsletter" />
-              <input name="email" placeholder="Tu correo electrónico" required type="email" />
-              <Button type="submit">Suscribirse</Button>
-            </form>
+            <NewsletterForm
+              className={styles.form}
+              inputClassName={styles.input}
+              redirect="/newsletter"
+            />
             {message ? <div className={styles.notice}>{message}</div> : null}
           </div>
         </section>

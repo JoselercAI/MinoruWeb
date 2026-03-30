@@ -41,7 +41,7 @@ export default function ContactoPage() {
               <article className="card" key={item.title}>
                 <h2>{item.title}</h2>
                 <p>{item.body}</p>
-                <Button href={item.href} kind="ghost">
+                <Button analytics={`contact_${item.title.toLowerCase()}`} href={item.href} kind="ghost">
                   {item.cta}
                 </Button>
               </article>

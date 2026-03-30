@@ -1,0 +1,36 @@
+.page {
+  padding: 5rem 0 3rem;
+}
+
+.hero {
+  display: grid;
+  gap: 1rem;
+  padding: 3rem 0 2rem;
+}
+
+.hero p {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero span {
+  max-width: 42rem;
+  color: var(--color-text-soft);
+  line-height: 1.7;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.stack article {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.5rem;
+}
+
+.stack h2 {
+  font-size: 1.3rem;
+}

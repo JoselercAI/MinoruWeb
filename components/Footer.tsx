@@ -14,7 +14,13 @@ export function Footer() {
         <p>© {new Date().getFullYear()} {site.name}. Todos los derechos reservados.</p>
         <div className={styles.links}>
           {links.map((link) => (
-            <a href={link.href} key={link.label} target="_blank" rel="noreferrer">
+            <a
+              data-analytics={`footer_${link.label.toLowerCase()}`}
+              href={link.href}
+              key={link.label}
+              rel="noreferrer"
+              target="_blank"
+            >
               {link.label}
             </a>
           ))}

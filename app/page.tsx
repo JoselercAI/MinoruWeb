@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/Button";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { NewsletterForm } from "@/components/NewsletterForm";
 import { Section } from "@/components/Section";
 import { getNewsletterMessage } from "@/lib/newsletter";
 import { about, site, timeline } from "@/lib/site";
@@ -35,8 +36,10 @@ export default async function Home({ searchParams }: Props) {
                 documentar y compartir lo que de verdad funciona.
               </p>
               <div className={styles.actions}>
-                <Button href="/newsletter">Newsletter</Button>
-                <Button href="/contacto" kind="ghost">
+                <Button analytics="hero_newsletter" href="/newsletter">
+                  Newsletter
+                </Button>
+                <Button analytics="hero_contact" href="/contacto" kind="ghost">
                   Página de contacto
                 </Button>
               </div>
@@ -103,7 +106,7 @@ export default async function Home({ searchParams }: Props) {
               Contenido para seguir el proceso, entender decisiones y ver cómo evoluciona el
               proyecto en tiempo real.
             </p>
-            <Button href={site.youtubeUrl} kind="ghost">
+          <Button analytics="youtube_channel" href={site.youtubeUrl} kind="ghost">
               Ver canal
             </Button>
           </div>
@@ -113,6 +116,7 @@ export default async function Home({ searchParams }: Props) {
                 className={`${styles.videoCard} card`}
                 href={video.url}
                 key={video.id}
+              data-analytics={`youtube_video_${video.id}`}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -140,10 +144,7 @@ export default async function Home({ searchParams }: Props) {
               </p>
               {message ? <div className={styles.notice}>{message}</div> : null}
             </div>
-            <form action="/api/newsletter" className={styles.form} method="post">
-              <input name="email" placeholder="Tu correo electrónico" required type="email" />
-              <Button type="submit">Suscribirse</Button>
-            </form>
+            <NewsletterForm className={styles.form} inputClassName={styles.input} redirect="/" />
           </div>
         </Section>
       </main>

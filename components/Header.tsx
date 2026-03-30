@@ -7,17 +7,17 @@ export function Header() {
   return (
     <header className={styles.wrap}>
       <div className={`container ${styles.inner}`}>
-        <Link className={styles.brand} href="/">
+        <Link className={styles.brand} data-analytics="header_brand" href="/">
           {site.name}
         </Link>
         <nav className={styles.nav}>
           {navItems.map((item) => (
-            <a href={item.href} key={item.href}>
+            <a data-analytics={`nav_${item.label.toLowerCase()}`} href={item.href} key={item.href}>
               {item.label}
             </a>
           ))}
         </nav>
-        <Button href="/contacto" kind="ghost">
+        <Button analytics="header_contact" href="/contacto" kind="ghost">
           Contacto
         </Button>
       </div>

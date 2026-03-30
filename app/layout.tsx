@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
+import { CookieConsent } from "@/components/CookieConsent";
+import { TrackingManager } from "@/components/TrackingManager";
 import { site } from "@/lib/site";
 import "./globals.scss";
 
@@ -32,7 +35,13 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Suspense fallback={null}>
+          <TrackingManager />
+        </Suspense>
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   );
 }

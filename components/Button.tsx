@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "./button.module.scss";
 
 type Props = {
+  analytics?: string;
   children: React.ReactNode;
   href?: string;
   kind?: "primary" | "ghost";
@@ -9,6 +10,7 @@ type Props = {
 };
 
 export function Button({
+  analytics,
   children,
   href,
   kind = "primary",
@@ -18,14 +20,14 @@ export function Button({
 
   if (href) {
     return (
-      <Link className={className} href={href}>
+      <Link className={className} data-analytics={analytics} href={href}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button className={className} type={type}>
+    <button className={className} data-analytics={analytics} type={type}>
       {children}
     </button>
   );
