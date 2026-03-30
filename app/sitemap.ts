@@ -28,6 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.4,
     },
     {
+      url: `${site.url}/newsletter/confirmado`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.4,
+    },
+    {
       url: `${site.url}/cookies`,
       lastModified: new Date(),
       changeFrequency: "monthly",
