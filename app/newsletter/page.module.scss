@@ -6,12 +6,18 @@
   display: grid;
   gap: 1rem;
   padding: 0.75rem 0 1.5rem;
+  width: min(100%, 46rem);
+  margin: 0 auto;
 }
 
 .hero p {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 4.8rem);
 }
 
 .hero span {
