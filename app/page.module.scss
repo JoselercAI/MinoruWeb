@@ -36,6 +36,13 @@
   font-size: 1.05rem;
 }
 
+.proof {
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .actions {
   display: flex;
   gap: 1rem;

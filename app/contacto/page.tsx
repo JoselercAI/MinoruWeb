@@ -22,8 +22,8 @@ export default function ContactoPage() {
               <p>Contacto</p>
               <h1>Hablemos.</h1>
               <span>
-                Una vía directa para colaboraciones, propuestas estratégicas y conversaciones con
-                sentido.
+                Si tienes una propuesta concreta, adelante. Si no sabes muy bien que escribir,
+                empieza por el canal que mas encaje.
               </span>
             </div>
             <div className={`${styles.visual} card`}>

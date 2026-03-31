@@ -94,11 +94,11 @@ export function CookieConsent() {
           <section className={styles.banner}>
             <div className={styles.copy}>
               <p className={styles.eyebrow}>Cookies</p>
-              <h2>Tu privacidad, primero.</h2>
+              <h2>Usamos cookies. Las justas.</h2>
               <p>
-                Usamos cookies esenciales para que la web funcione y, si lo aceptas, cookies de
-                analítica y marketing para medir adquisición y campañas. Puedes cambiar tu decisión
-                cuando quieras.{" "}
+                Las esenciales para que la web funcione, y si nos das permiso, algunas de
+                analitica para entender que funciona y que no. Nada mas. Puedes cambiar esto cuando
+                quieras.{" "}
                 <Link href="/cookies" onClick={() => setOpen(false)}>
                   Más información
                 </Link>

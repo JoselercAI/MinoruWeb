@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 const providers = [
   {
     href: "https://mail.google.com/mail/u/0/#inbox",
-    label: "Abrir Gmail",
-    note: "Si usas Gmail, entra y busca el email de confirmación.",
+    label: "Ir a Gmail a confirmarlo",
+    note: "Busca el mensaje de hola@minoruisisola.com y confirma desde ahi.",
   },
   {
     href: "https://outlook.live.com/mail/0/",
-    label: "Abrir Outlook",
-    note: "Si usas Outlook, revisa también promociones y correo no deseado.",
+    label: "Ir a Outlook a confirmarlo",
+    note: "Revisa bandeja principal, spam o promociones antes de confirmar.",
   },
 ];
 
@@ -35,11 +35,11 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
         <section className="container">
           <div className={styles.hero}>
             <p>{active ? "Suscripción completada" : "Suscripción iniciada"}</p>
-            <h1>{active ? "Ya estás dentro." : "Confirma tu email."}</h1>
+            <h1>{active ? "Ya estas dentro." : "Casi estas dentro."}</h1>
             <span>
               {active
                 ? "Tu email ya ha quedado correctamente dado de alta en la lista."
-                : "Te hemos enviado un correo para validar tu suscripción. Hasta que no pulses el enlace de confirmación, no quedarás dentro de la lista."}
+                : "Te acabo de mandar un email para confirmar que eres tu. Si no confirmas, no recibes nada. Asi de simple."}
             </span>
           </div>
 
@@ -51,9 +51,8 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
                   <>Si quieres asegurarte de recibir bien los próximos correos, añade <strong>{site.email}</strong> a tus contactos.</>
                 ) : (
                   <>
-                    Busca el email de confirmación en tu bandeja principal, spam o promociones. Si
-                    no lo ves en unos minutos, añade <strong>{site.email}</strong> a tus contactos y
-                    vuelve a revisar.
+                    Busca un mensaje de <strong>{site.email}</strong>. Puede que este en spam o en
+                    promociones. Haz clic en el enlace que hay dentro y ya esta.
                   </>
                 )}
               </p>
@@ -79,7 +78,7 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
               <p>
                 {active
                   ? "Si te has registrado con otro proveedor, no pasa nada. La suscripción ya está activa."
-                  : "Si te has registrado con otro proveedor, no pasa nada: el proceso es el mismo. Simplemente abre tu correo y confirma el enlace que te acabamos de enviar."}
+                  : "Si usas otro proveedor, el proceso es el mismo."}
               </p>
               <a data-analytics="newsletter_confirm_contact" href={`mailto:${site.email}`}>
                 {site.email}

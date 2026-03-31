@@ -25,24 +25,24 @@ export default async function Home({ searchParams }: Props) {
         <section className={styles.hero}>
           <div className={`container ${styles.heroGrid}`}>
             <div className={styles.copy}>
-              <p className={styles.eyebrow}>Arquitecto de futuros digitales</p>
+              <p className={styles.eyebrow}>Emprendedor · Inversor</p>
               <h1>
                 Minoru
                 <br />
                 Isisola
               </h1>
               <p className={styles.lead}>
-                Negocio, sistemas e inteligencia artificial. Una nueva etapa para construir,
-                documentar y compartir lo que de verdad funciona.
+                Construyo negocios con IA y lo documento todo en publico.
               </p>
               <div className={styles.actions}>
                 <Button analytics="hero_newsletter" href="/newsletter">
-                  Newsletter
+                  Recibir el email semanal
                 </Button>
                 <Button analytics="hero_contact" href="/contacto" kind="ghost">
                   Página de contacto
                 </Button>
               </div>
+              <p className={styles.proof}>12.000 emprendedores ya lo reciben</p>
             </div>
             <div className={`${styles.visual} card`}>
               <Image
@@ -97,17 +97,17 @@ export default async function Home({ searchParams }: Props) {
 
         <Section
           id="youtube"
-          eyebrow="Educación e insights"
+          eyebrow="IA · Negocios"
           title="Canal de YouTube"
           muted
         >
           <div className={styles.youtubeTop}>
             <p>
-              Contenido para seguir el proceso, entender decisiones y ver cómo evoluciona el
-              proyecto en tiempo real.
+              Si buscas a alguien que pruebe herramientas de IA y cuente la verdad sobre lo que
+              funciona, este es el canal.
             </p>
-          <Button analytics="youtube_channel" href={site.youtubeUrl} kind="ghost">
-              Ver canal
+            <Button analytics="youtube_channel" href={site.youtubeUrl} kind="ghost">
+              Ver el canal
             </Button>
           </div>
           <div className={styles.videoGrid}>
@@ -116,7 +116,7 @@ export default async function Home({ searchParams }: Props) {
                 className={`${styles.videoCard} card`}
                 href={video.url}
                 key={video.id}
-              data-analytics={`youtube_video_${video.id}`}
+                data-analytics={`youtube_video_${video.id}`}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -135,13 +135,17 @@ export default async function Home({ searchParams }: Props) {
           </div>
         </Section>
 
-        <Section id="newsletter" title="Cada semana en tu email">
+        <Section id="newsletter" title="Lo que aprendo cada semana, directo a tu email">
           <div className={`${styles.newsletter} card`}>
             <div className={styles.newsletterCopy}>
               <p>
-                Sin ruido. Lo que estoy construyendo, lo que estoy probando y lo que merece la
-                pena entender antes que el resto.
+                El 90% del contenido de IA en espanol es ruido.
               </p>
+              <p>
+                Cada semana te cuento que estoy construyendo, que herramientas estoy probando y
+                que merece la pena saber antes que el resto.
+              </p>
+              <p className={styles.proof}>12.000 emprendedores ya lo reciben.</p>
               {message ? <div className={styles.notice}>{message}</div> : null}
             </div>
             <NewsletterForm className={styles.form} inputClassName={styles.input} redirect="/" />

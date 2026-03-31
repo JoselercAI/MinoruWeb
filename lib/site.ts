@@ -4,7 +4,7 @@ export const site = {
   url: process.env.SITE_URL || "https://minoruisisola.com",
   email: "hola@minoruisisola.com",
   description:
-    "Web oficial de Minoru Isisola: negocio, IA, contenido educativo y newsletter.",
+    "Construyo negocios con IA y lo documento todo en publico.",
   youtubeUrl: process.env.YOUTUBE_URL || "https://www.youtube.com/@minoruisisola",
   instagramUrl: process.env.INSTAGRAM_URL || "#",
   tiktokUrl: process.env.TIKTOK_URL || "#",
@@ -18,46 +18,47 @@ export const navItems = [
 ];
 
 export const about = [
-  "Minoru Isisola es un emprendedor online que creció entre diferentes culturas. Lo que empezó como una búsqueda de libertad se convirtió en algo más grande: negocios, formación y una audiencia global.",
-  "Tras años construyendo en ecommerce, abrió una nueva etapa centrada en inteligencia artificial, sistemas y creación de productos digitales.",
-  "Ahora documenta el proceso, comparte aprendizajes y construye en público con un enfoque más simple, más estratégico y más libre.",
+  "Naci en Japon, creci entre culturas y empece a construir negocios online sin saber lo que hacia.",
+  "Lo que empezo como una busqueda de libertad se convirtio en mas de 3 millones de euros generados y mas de 1.700 alumnos en 37 paises.",
+  "En 2025 cerre esa etapa y aposte por la inteligencia artificial. Me instale en Dubai y empece desde cero probando, invirtiendo y equivocandome.",
+  "Ahora construyo negocios con IA y lo documento todo en publico. Lo que funciona, lo que no y cuanto cuesta cada decision.",
 ];
 
 export const timeline = [
   {
     year: "2019",
-    text: "Empieza a vender en Amazon desde cero y entra de lleno en el juego digital.",
+    text: "Empieza a vender en Amazon desde cero. Sin capital, sin experiencia. Solo un ordenador y ganas de no depender de nadie.",
   },
   {
     year: "2022",
-    text: "Lanza su universidad y convierte experiencia práctica en metodología replicable.",
-  },
-  {
-    year: "2024",
-    text: "Escala el negocio, amplía su alcance internacional y consolida una comunidad global.",
+    text: "Lanza su formacion sobre Amazon FBA. Mas de 1.700 alumnos en 37 paises. Convierte anos de errores en algo que otros pueden replicar.",
   },
   {
     year: "2025",
-    text: "Cierra una etapa y empieza a construir nuevos negocios con IA mientras documenta todo en YouTube.",
+    text: "Cierra la etapa de Amazon. Pivota hacia la inteligencia artificial y empieza a construir desde cero.",
+  },
+  {
+    year: "2026",
+    text: "Invierte 60.000 dolares probando herramientas y modelos de negocio. Documenta todo el proceso en publico.",
   },
 ];
 
 export const contactBlocks = [
   {
     title: "Email",
-    body: "Para colaboraciones, prensa o propuestas estratégicas.",
-    cta: "Escribir email",
+    body: "Para colaboraciones, patrocinios y propuestas estrategicas.",
+    cta: "Enviar mensaje",
     href: `mailto:${site.email}`,
   },
   {
     title: "YouTube",
-    body: "Contenido sobre negocio, sistemas y nuevas ideas.",
+    body: "Videos sobre IA, negocios y lo que estoy construyendo en tiempo real.",
     cta: "Abrir canal",
     href: site.youtubeUrl,
   },
   {
     title: "Instagram",
-    body: "Actualizaciones breves, contexto diario y momentos detrás del proceso.",
+    body: "El dia a dia del proceso. Sin filtro y sin produccion.",
     cta: "Abrir perfil",
     href: site.instagramUrl,
   },

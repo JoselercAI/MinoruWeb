@@ -19,8 +19,8 @@ export default function CookiesPage() {
             <p>Cookies</p>
             <h1>Política de cookies.</h1>
             <span>
-              Esta web solo activa cookies no esenciales cuando el usuario da su consentimiento
-              explícito.
+              Las esenciales para que la web funcione, y si nos das permiso, algunas de analitica
+              para entender que funciona y que no.
             </span>
           </div>
 

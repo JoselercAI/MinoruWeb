@@ -26,22 +26,23 @@ export default async function NewsletterPage({ searchParams }: Props) {
             <p>Newsletter</p>
             <h1>Cada semana en tu email.</h1>
             <span>
-              Ideas, aprendizajes y decisiones reales sobre negocio, sistemas e inteligencia
-              artificial. Sin ruido y sin relleno.
+              El 90% del contenido de IA en espanol es ruido. Esto es lo que queda cuando lo
+              eliminas.
             </span>
           </div>
           <div className={`${styles.card} card`}>
             <div className={styles.copy}>
-              <h2>Minoru&apos;s Newsletter</h2>
+              <h2>El email semanal de Minoru</h2>
               <p>
-                Un correo breve para seguir lo que estoy construyendo y entender lo que merece la
-                pena antes que el resto.
+                Cada semana te cuento que estoy construyendo, que herramientas estoy probando y
+                que merece la pena saber antes que el resto.
               </p>
               <ul className={styles.points}>
-                <li>Experimentos reales.</li>
-                <li>Sistemas y aprendizajes accionables.</li>
-                <li>Actualizaciones directas, sin humo.</li>
+                <li>Lo que funciona. Lo que no. Con numeros reales.</li>
+                <li>Herramientas probadas con mi propio dinero.</li>
+                <li>Solo recomiendo lo que he probado yo mismo.</li>
               </ul>
+              <p className={styles.proof}>12.000 emprendedores ya lo reciben.</p>
             </div>
             <NewsletterForm
               className={styles.form}

@@ -18,8 +18,8 @@ export default function NewsletterConfirmedPage() {
             <p>Suscripción confirmada</p>
             <h1>Ya estás dentro.</h1>
             <span>
-              Tu email ha quedado confirmado correctamente. A partir de ahora formarás parte de la
-              newsletter de Minoru.
+              Tu email ya esta confirmado. A partir de ahora formaras parte del email semanal de
+              Minoru.
             </span>
           </div>
 
@@ -27,8 +27,8 @@ export default function NewsletterConfirmedPage() {
             <div className={styles.copy}>
               <h2>Todo listo.</h2>
               <p>
-                Recibirás próximos correos con ideas, aprendizajes y actualizaciones reales sobre
-                negocio, sistemas e inteligencia artificial.
+                Recibiras proximos correos con ideas, aprendizajes y actualizaciones reales sobre
+                IA, negocios y lo que estoy construyendo en publico.
               </p>
             </div>
 
