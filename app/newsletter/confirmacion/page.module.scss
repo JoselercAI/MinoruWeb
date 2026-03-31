@@ -45,6 +45,10 @@
   font-size: clamp(1.4rem, 3vw, 1.8rem);
 }
 
+.note {
+  text-align: center;
+}
+
 .copy p strong,
 .notice a {
   color: var(--color-text);

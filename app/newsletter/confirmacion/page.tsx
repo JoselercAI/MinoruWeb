@@ -83,18 +83,16 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
               ))}
             </div>
 
-            <div className={styles.notice}>
-              <p>
-                {active
-                  ? "Si te has registrado con otro proveedor, no pasa nada. La suscripción ya está activa."
-                  : "Si usas otro proveedor, el proceso es el mismo."}
-              </p>
-              {active ? (
+            {active ? (
+              <div className={styles.notice}>
+                <p>Si te has registrado con otro proveedor, no pasa nada. La suscripción ya está activa.</p>
                 <a data-analytics="newsletter_confirm_contact" href={`mailto:${site.email}`}>
                   {site.email}
                 </a>
-              ) : null}
-            </div>
+              </div>
+            ) : (
+              <p className={styles.note}>Si usas otro proveedor, el proceso es el mismo.</p>
+            )}
           </div>
         </section>
       </main>
