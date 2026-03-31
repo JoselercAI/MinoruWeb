@@ -69,6 +69,10 @@
   object-fit: cover;
 }
 
+.sideVisual img {
+  object-position: center 18%;
+}
+
 .visual::after,
 .portrait::after,
 .sideVisual::after {
@@ -209,5 +213,9 @@
 
   .youtubeMobileCta {
     display: grid;
+  }
+
+  .sideVisual img {
+    object-position: center;
   }
 }
