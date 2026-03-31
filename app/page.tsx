@@ -84,6 +84,7 @@ export default async function Home({ searchParams }: Props) {
             <div className={`${styles.sideVisual} card`}>
               <Image
                 alt="Minoru Isisola durante una entrevista"
+                className={styles.timelineImage}
                 fill
                 sizes="(max-width: 920px) 100vw, 40vw"
                 src="/images/timeline.jpg"

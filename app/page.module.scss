@@ -69,8 +69,8 @@
   object-fit: cover;
 }
 
-.sideVisual img {
-  object-position: center 18%;
+.timelineImage {
+  object-position: center 8% !important;
 }
 
 .visual::after,
@@ -215,7 +215,7 @@
     display: grid;
   }
 
-  .sideVisual img {
+  .timelineImage {
     object-position: center;
   }
 }
