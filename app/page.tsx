@@ -39,7 +39,7 @@ export default async function Home({ searchParams }: Props) {
                   Recibir el email semanal
                 </Button>
               </div>
-              <p className={styles.proof}>12.000 emprendedores ya lo reciben</p>
+              <p className={styles.proof}>+12.000 emprendedores ya lo reciben</p>
             </div>
             <div className={`${styles.visual} card`}>
               <Image
@@ -156,7 +156,7 @@ export default async function Home({ searchParams }: Props) {
               {message ? <div className={styles.notice}>{message}</div> : null}
             </div>
             <NewsletterForm className={styles.form} inputClassName={styles.input} redirect="/" />
-            <p className={styles.newsletterProof}>12.000 emprendedores ya lo reciben.</p>
+            <p className={styles.newsletterProof}>+12.000 emprendedores ya lo reciben.</p>
           </div>
         </Section>
       </main>

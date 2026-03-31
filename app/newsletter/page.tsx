@@ -42,7 +42,6 @@ export default async function NewsletterPage({ searchParams }: Props) {
                 <li>Herramientas probadas con mi propio dinero.</li>
                 <li>Solo recomiendo lo que he probado yo mismo.</li>
               </ul>
-              <p className={styles.proof}>12.000 emprendedores ya lo reciben.</p>
             </div>
             <NewsletterForm
               className={styles.form}
@@ -50,6 +49,7 @@ export default async function NewsletterPage({ searchParams }: Props) {
               redirect="/newsletter"
             />
             {message ? <div className={styles.notice}>{message}</div> : null}
+            <p className={styles.proof}>+12.000 emprendedores ya lo reciben.</p>
           </div>
         </section>
       </main>
