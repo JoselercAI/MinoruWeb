@@ -43,10 +43,9 @@ export async function getYoutubeVideos(limit = 3) {
   }
 
   try {
-    const response = await fetch(
-      `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`,
-      { next: { revalidate: 3600 } },
-    );
+    const response = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`, {
+      cache: "no-store",
+    });
 
     if (!response.ok) {
       return fallbackVideos.slice(0, limit);
