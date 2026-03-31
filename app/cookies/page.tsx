@@ -17,10 +17,10 @@ export default function CookiesPage() {
         <section className="container">
           <div className={styles.hero}>
             <p>Cookies</p>
-            <h1>Política de cookies.</h1>
+            <h1>Usamos cookies. Las justas.</h1>
             <span>
-              Las esenciales para que la web funcione, y si nos das permiso, algunas de analitica
-              para entender que funciona y que no.
+              Las esenciales para que la web funcione, y si nos das permiso, algunas de analítica
+              para entender qué funciona y qué no. Nada más.
             </span>
           </div>
 
@@ -28,32 +28,22 @@ export default function CookiesPage() {
             <article className="card">
               <h2>Esenciales</h2>
               <p>
-                Son necesarias para recordar tus preferencias de cookies y para que la web
-                funcione correctamente.
+                Las necesarias para que la web funcione y para recordar tu preferencia de cookies.
               </p>
             </article>
 
             <article className="card">
               <h2>Analítica</h2>
               <p>
-                Si las aceptas, usamos herramientas de medición para entender desde dónde llega el
-                tráfico, qué páginas se visitan y qué acciones convierten mejor.
+                Si la aceptas, sirve para entender qué funciona y qué no dentro de la web.
               </p>
             </article>
 
             <article className="card">
-              <h2>Marketing</h2>
+              <h2>Control</h2>
               <p>
-                Si las aceptas, podemos activar píxeles publicitarios para medir campañas y crear
-                audiencias. Nunca se activan por defecto.
-              </p>
-            </article>
-
-            <article className="card">
-              <h2>Gestión del consentimiento</h2>
-              <p>
-                Puedes aceptar, rechazar o cambiar tus preferencias en cualquier momento desde el
-                botón flotante de cookies que aparece en la web.
+                Puedes aceptar, rechazar o cambiar esto cuando quieras desde el botón flotante de
+                cookies.
               </p>
             </article>
           </div>

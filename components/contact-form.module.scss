@@ -1,0 +1,20 @@
+.form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  min-height: 2.9rem;
+  padding: 0.85rem 1rem;
+  color: var(--color-text);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.form textarea {
+  resize: vertical;
+}

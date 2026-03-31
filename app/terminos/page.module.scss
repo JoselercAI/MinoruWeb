@@ -1,0 +1,23 @@
+.page {
+  padding: 5rem 0 3rem;
+}
+
+.hero {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 54rem);
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.hero p {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero span {
+  max-width: 42rem;
+  color: var(--color-text-soft);
+  line-height: 1.7;
+}

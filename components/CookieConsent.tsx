@@ -43,7 +43,6 @@ export function CookieConsent() {
   const [open, setOpen] = useState(false);
   const [customize, setCustomize] = useState(false);
   const [analytics, setAnalytics] = useState(false);
-  const [marketing, setMarketing] = useState(false);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -51,7 +50,6 @@ export function CookieConsent() {
 
       if (current) {
         setAnalytics(current.analytics);
-        setMarketing(current.marketing);
         setOpen(false);
       } else {
         setOpen(true);
@@ -67,17 +65,16 @@ export function CookieConsent() {
     return null;
   }
 
-  const save = (nextAnalytics: boolean, nextMarketing: boolean) => {
+  const save = (nextAnalytics: boolean) => {
     const consent = {
       version: COOKIE_PREFERENCES_VERSION,
       analytics: nextAnalytics,
-      marketing: nextMarketing,
+      marketing: false,
       updatedAt: new Date().toISOString(),
     };
 
     setCookie(COOKIE_CONSENT_NAME, serializeCookieConsent(consent));
     setAnalytics(nextAnalytics);
-    setMarketing(nextMarketing);
     setCustomize(false);
     setOpen(false);
     emitConsent(consent);
@@ -118,7 +115,7 @@ export function CookieConsent() {
                 <label className={styles.option}>
                   <div>
                     <strong>Analítica</strong>
-                    <span>Permite medir origen del tráfico, páginas visitadas y conversiones.</span>
+                    <span>Para entender qué funciona y qué no, nada más.</span>
                   </div>
                   <input
                     checked={analytics}
@@ -127,36 +124,24 @@ export function CookieConsent() {
                   />
                 </label>
 
-                <label className={styles.option}>
-                  <div>
-                    <strong>Marketing</strong>
-                    <span>Permite activar píxeles y audiencias publicitarias cuando proceda.</span>
-                  </div>
-                  <input
-                    checked={marketing}
-                    onChange={(event) => setMarketing(event.target.checked)}
-                    type="checkbox"
-                  />
-                </label>
-
                 <div className={styles.actions}>
-                  <button onClick={() => save(false, false)} type="button">
+                  <button onClick={() => save(false)} type="button">
                     Rechazar
                   </button>
-                  <button onClick={() => save(analytics, marketing)} type="button">
+                  <button onClick={() => save(analytics)} type="button">
                     Guardar preferencias
                   </button>
                 </div>
               </div>
             ) : (
               <div className={styles.actions}>
-                <button onClick={() => save(false, false)} type="button">
+                <button onClick={() => save(false)} type="button">
                   Rechazar
                 </button>
                 <button onClick={() => setCustomize(true)} type="button">
                   Configurar
                 </button>
-                <button className={styles.primary} onClick={() => save(true, true)} type="button">
+                <button className={styles.primary} onClick={() => save(true)} type="button">
                   Aceptar
                 </button>
               </div>

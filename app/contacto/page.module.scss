@@ -4,10 +4,10 @@
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 28rem);
   gap: 1rem;
-  padding: 3rem 0;
-  align-items: center;
+  width: min(100%, 54rem);
+  margin: 0 auto;
+  padding: 3rem 0 2rem;
 }
 
 .hero p {
@@ -24,26 +24,23 @@
   line-height: 1.7;
 }
 
-.visual {
-  position: relative;
-  overflow: hidden;
-  min-height: 26rem;
-}
-
-.visual img {
-  object-fit: cover;
-}
-
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(100%, 54rem);
+  margin: 0 auto;
   gap: 1.5rem;
 }
 
-.grid article {
+.emailCard,
+.channelCard {
   display: grid;
   gap: 1rem;
-  padding: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2rem);
+}
+
+.emailCard {
+  grid-column: 1 / -1;
 }
 
 .grid h2 {

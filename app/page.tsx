@@ -103,9 +103,11 @@ export default async function Home({ searchParams }: Props) {
               Si buscas a alguien que pruebe herramientas de IA y cuente la verdad sobre lo que
               funciona, este es el canal.
             </p>
-            <Button analytics="youtube_channel" href={site.youtubeUrl} kind="ghost">
-              Ver el canal
-            </Button>
+            <div className={styles.youtubeDesktopCta}>
+              <Button analytics="youtube_channel" href={site.youtubeUrl} kind="ghost">
+                Ver el canal
+              </Button>
+            </div>
           </div>
           <div className={styles.videoGrid}>
             {videos.map((video) => (
@@ -129,6 +131,11 @@ export default async function Home({ searchParams }: Props) {
                 </div>
               </a>
             ))}
+          </div>
+          <div className={styles.youtubeMobileCta}>
+            <Button analytics="youtube_channel_mobile" href={site.youtubeUrl} kind="ghost">
+              Ver el canal
+            </Button>
           </div>
         </Section>
 

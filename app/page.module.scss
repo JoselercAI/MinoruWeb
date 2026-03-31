@@ -104,6 +104,11 @@
   max-width: 34rem;
 }
 
+.youtubeMobileCta {
+  display: none;
+  margin-top: 1rem;
+}
+
 .videoGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -191,5 +196,18 @@
 
   .videoGrid {
     gap: 1rem;
+  }
+
+  .proof,
+  .newsletterProof {
+    font-size: 0.66rem;
+  }
+
+  .youtubeDesktopCta {
+    display: none;
+  }
+
+  .youtubeMobileCta {
+    display: grid;
   }
 }

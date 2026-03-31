@@ -53,23 +53,26 @@ export async function getYoutubeVideos(limit = 3) {
     }
 
     const xml = await response.text();
-    const ids = pick(xml, "yt:videoId");
-    const titles = pick(xml, "title").slice(1);
-    const published = pick(xml, "published");
+    const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((match) => match[1]);
 
-    return ids.slice(0, limit).map((id, index) => ({
-      id,
-      title: titles[index] || fallbackVideos[0].title,
-      url: `https://www.youtube.com/watch?v=${id}`,
-      thumbnail: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
-      publishedAt: published[index]
-        ? new Date(published[index]).toLocaleDateString("es-ES", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })
-        : fallbackVideos[0].publishedAt,
-    }));
+    return entries.slice(0, limit).map((entry, index) => {
+      const id = pick(entry, "yt:videoId")[0] || fallbackVideos[index]?.id || fallbackVideos[0].id;
+      const published = pick(entry, "published")[0];
+
+      return {
+        id,
+        title: pick(entry, "title")[0] || fallbackVideos[index]?.title || fallbackVideos[0].title,
+        url: `https://www.youtube.com/watch?v=${id}`,
+        thumbnail: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
+        publishedAt: published
+          ? new Date(published).toLocaleDateString("es-ES", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          : fallbackVideos[index]?.publishedAt || fallbackVideos[0].publishedAt,
+      };
+    });
   } catch {
     return fallbackVideos.slice(0, limit);
   }

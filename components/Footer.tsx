@@ -6,23 +6,37 @@ const links = [
   { label: "Instagram", href: site.instagramUrl },
 ];
 
+const legalLinks = [
+  { label: "Política de privacidad", href: "/privacidad" },
+  { label: "Términos y condiciones", href: "/terminos" },
+];
+
 export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
         <p>© 2026 {site.name}. Todos los derechos reservados.</p>
-        <div className={styles.links}>
-          {links.map((link) => (
-            <a
-              data-analytics={`footer_${link.label.toLowerCase()}`}
-              href={link.href}
-              key={link.label}
-              rel="noreferrer"
-              target="_blank"
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className={styles.groups}>
+          <div className={styles.links}>
+            {links.map((link) => (
+              <a
+                data-analytics={`footer_${link.label.toLowerCase()}`}
+                href={link.href}
+                key={link.label}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <div className={styles.legal}>
+            {legalLinks.map((link) => (
+              <a data-analytics={`footer_${link.label.toLowerCase()}`} href={link.href} key={link.label}>
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
