@@ -38,9 +38,6 @@ export default async function Home({ searchParams }: Props) {
                 <Button analytics="hero_newsletter" href="/newsletter">
                   Recibir el email semanal
                 </Button>
-                <Button analytics="hero_contact" href="/contacto" kind="ghost">
-                  Página de contacto
-                </Button>
               </div>
               <p className={styles.proof}>12.000 emprendedores ya lo reciben</p>
             </div>
@@ -135,7 +132,11 @@ export default async function Home({ searchParams }: Props) {
           </div>
         </Section>
 
-        <Section id="newsletter" title="Lo que aprendo cada semana, directo a tu email">
+        <Section
+          id="newsletter"
+          title="Lo que aprendo cada semana, directo a tu email"
+          headingClassName={styles.newsletterHeading}
+        >
           <div className={`${styles.newsletter} card`}>
             <div className={styles.newsletterCopy}>
               <p>
@@ -145,10 +146,10 @@ export default async function Home({ searchParams }: Props) {
                 Cada semana te cuento que estoy construyendo, que herramientas estoy probando y
                 que merece la pena saber antes que el resto.
               </p>
-              <p className={styles.proof}>12.000 emprendedores ya lo reciben.</p>
               {message ? <div className={styles.notice}>{message}</div> : null}
             </div>
             <NewsletterForm className={styles.form} inputClassName={styles.input} redirect="/" />
+            <p className={styles.newsletterProof}>12.000 emprendedores ya lo reciben.</p>
           </div>
         </Section>
       </main>

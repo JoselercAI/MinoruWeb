@@ -43,6 +43,12 @@
   text-transform: uppercase;
 }
 
+.newsletterHeading,
+.newsletter {
+  width: min(100%, 46rem);
+  margin-inline: auto;
+}
+
 .actions {
   display: flex;
   gap: 1rem;
@@ -141,6 +147,13 @@
 
 .newsletterCopy p {
   max-width: 38rem;
+}
+
+.newsletterProof {
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .form {
