@@ -11,58 +11,58 @@
 }
 
 .inner p,
-.links a {
+.links a,
+.legal a {
   color: var(--color-text-soft);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
+.meta {
+  display: grid;
+  gap: 0.75rem;
+}
+
 .links {
   display: flex;
   gap: 1rem;
-}
-
-.groups {
-  display: grid;
-  gap: 0.75rem;
-  justify-items: end;
+  justify-content: flex-end;
+  align-self: flex-start;
 }
 
 .legal {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 @media (max-width: 720px) {
   .inner,
-  .links,
-  .legal {
+  .links {
     flex-direction: column;
   }
 
-  .groups {
-    justify-items: center;
-  }
-
-  .links,
-  .legal {
+  .links {
     order: 1;
     align-items: center;
     justify-content: center;
+    padding: 0.25rem 0 0.2rem;
   }
 
-  .links {
-    padding: 0.25rem 0 0.2rem;
+  .meta {
+    order: 2;
+    width: 100%;
   }
 
   .legal {
     padding: 0 0 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .inner p {
-    order: 3;
+    order: 2;
   }
 }

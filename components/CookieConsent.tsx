@@ -41,6 +41,7 @@ const emitConsent = (consent: CookieConsent) => {
 export function CookieConsent() {
   const [ready, setReady] = useState(false);
   const [open, setOpen] = useState(false);
+  const [hasConsent, setHasConsent] = useState(false);
   const [customize, setCustomize] = useState(false);
   const [analytics, setAnalytics] = useState(false);
 
@@ -50,8 +51,10 @@ export function CookieConsent() {
 
       if (current) {
         setAnalytics(current.analytics);
+        setHasConsent(true);
         setOpen(false);
       } else {
+        setHasConsent(false);
         setOpen(true);
       }
 
@@ -75,6 +78,7 @@ export function CookieConsent() {
 
     setCookie(COOKIE_CONSENT_NAME, serializeCookieConsent(consent));
     setAnalytics(nextAnalytics);
+    setHasConsent(true);
     setCustomize(false);
     setOpen(false);
     emitConsent(consent);
@@ -82,9 +86,11 @@ export function CookieConsent() {
 
   return (
     <>
-      <button className={styles.manage} onClick={() => setOpen(true)} type="button">
-        Cookies
-      </button>
+      {!hasConsent ? (
+        <button className={styles.manage} onClick={() => setOpen(true)} type="button">
+          Cookies
+        </button>
+      ) : null}
 
       {open ? (
         <div className={styles.wrap}>

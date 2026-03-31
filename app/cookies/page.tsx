@@ -42,8 +42,8 @@ export default function CookiesPage() {
             <article className="card">
               <h2>Control</h2>
               <p>
-                Puedes aceptar, rechazar o cambiar esto cuando quieras desde el botón flotante de
-                cookies.
+                El consentimiento se guarda en tu navegador. Si borras las cookies o cambias de
+                dispositivo, volveremos a pedirte tu elección.
               </p>
             </article>
           </div>
