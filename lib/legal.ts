@@ -45,7 +45,7 @@ function splitIntoSections(text: string) {
   };
 
   for (const block of blocks) {
-    if (isSectionHeading(block)) {
+    if (!/contact/i.test(current.title) && isSectionHeading(block)) {
       if (current.paragraphs.length) {
         sections.push(current);
       }
