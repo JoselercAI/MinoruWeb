@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
   COOKIE_CONSENT_NAME,
@@ -100,11 +99,8 @@ export function CookieConsent() {
               <h2>Usamos cookies. Las justas.</h2>
               <p>
                 Las esenciales para que la web funcione, y si nos das permiso, algunas de
-                analitica para entender que funciona y que no. Nada mas. Puedes cambiar esto cuando
-                quieras.{" "}
-                <Link href="/cookies" onClick={() => setOpen(false)}>
-                  Más información
-                </Link>
+                analítica para entender qué funciona y qué no. Nada más. Puedes cambiar esto cuando
+                quieras.
               </p>
             </div>
 
