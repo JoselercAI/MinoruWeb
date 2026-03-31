@@ -157,7 +157,7 @@ export default async function Home({ searchParams }: Props) {
               {message ? <div className={styles.notice}>{message}</div> : null}
             </div>
             <NewsletterForm className={styles.form} inputClassName={styles.input} redirect="/" />
-            <p className={styles.newsletterProof}>+12.000 emprendedores ya lo reciben.</p>
+            <p className={styles.newsletterProof}>+12.000 emprendedores ya lo reciben</p>
           </div>
         </Section>
       </main>

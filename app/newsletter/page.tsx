@@ -49,7 +49,7 @@ export default async function NewsletterPage({ searchParams }: Props) {
               redirect="/newsletter"
             />
             {message ? <div className={styles.notice}>{message}</div> : null}
-            <p className={styles.proof}>+12.000 emprendedores ya lo reciben.</p>
+            <p className={styles.proof}>+12.000 emprendedores ya lo reciben</p>
           </div>
         </section>
       </main>
