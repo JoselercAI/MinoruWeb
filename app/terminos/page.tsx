@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { getLegalSections } from "@/lib/legal";
 import { site } from "@/lib/site";
-import styles from "./page.module.scss";
+import styles from "../legal.module.scss";
 
 export const metadata: Metadata = {
   title: "Términos y condiciones",
   description: `Términos y condiciones de ${site.name}.`,
 };
 
-export default function TermsPage() {
+export default async function TermsPage() {
+  const sections = await getLegalSections("terms.md");
+
   return (
     <>
       <Header />
@@ -19,9 +22,21 @@ export default function TermsPage() {
             <p>Legal</p>
             <h1>Términos y condiciones.</h1>
             <span>
-              Documento informativo en actualización. Para cualquier consulta sobre el uso de la
-              web o sus condiciones, escribe a {site.email}.
+              Texto legal completo sobre uso del sitio, contratación y condiciones aplicables a
+              {` ${site.domain}`}.
             </span>
+          </div>
+          <div className={styles.content}>
+            {sections.map((section) => (
+              <article className={`${styles.section} card`} key={section.title}>
+                <h2>{section.title}</h2>
+                {section.paragraphs.map((paragraph) => (
+                  <p className={/^[a-z]\)/i.test(paragraph) ? styles.item : undefined} key={paragraph}>
+                    {paragraph}
+                  </p>
+                ))}
+              </article>
+            ))}
           </div>
         </section>
       </main>
