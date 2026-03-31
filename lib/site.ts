@@ -4,7 +4,7 @@ export const site = {
   url: process.env.SITE_URL || "https://minoruisisola.com",
   email: "hola@minoruisisola.com",
   description:
-    "Construyo negocios con IA y lo documento todo en publico.",
+    "Construyo negocios con IA y lo documento todo en público.",
   youtubeUrl: process.env.YOUTUBE_URL || "https://www.youtube.com/@minoruisisola",
   instagramUrl: process.env.INSTAGRAM_URL || "#",
   tiktokUrl: process.env.TIKTOK_URL || "#",
@@ -18,10 +18,10 @@ export const navItems = [
 ];
 
 export const about = [
-  "Naci en Japon, creci entre culturas y empece a construir negocios online sin saber lo que hacia.",
-  "Lo que empezo como una busqueda de libertad se convirtio en mas de 3 millones de euros generados y mas de 1.700 alumnos en 37 paises.",
-  "En 2025 cerre esa etapa y aposte por la inteligencia artificial. Me instale en Dubai y empece desde cero probando, invirtiendo y equivocandome.",
-  "Ahora construyo negocios con IA y lo documento todo en publico. Lo que funciona, lo que no y cuanto cuesta cada decision.",
+  "Nací en Japón, crecí entre culturas y empecé a construir negocios online sin saber lo que hacía.",
+  "Lo que empezó como una búsqueda de libertad se convirtió en más de 3 millones de euros generados y más de 1.700 alumnos en 37 países.",
+  "En 2025 cerré esa etapa y aposté por la inteligencia artificial. Me instalé en Dubai y empecé desde cero probando, invirtiendo y equivocándome.",
+  "Ahora construyo negocios con IA y lo documento todo en público. Lo que funciona, lo que no y cuánto cuesta cada decisión.",
 ];
 
 export const timeline = [
@@ -31,7 +31,7 @@ export const timeline = [
   },
   {
     year: "2022",
-    text: "Lanza su formacion sobre Amazon FBA. Mas de 1.700 alumnos en 37 paises. Convierte anos de errores en algo que otros pueden replicar.",
+    text: "Lanza su formación en Amazon FBA. Más de 1.700 alumnos en 37 países. Convierte años de errores en algo que otros pueden replicar.",
   },
   {
     year: "2025",
@@ -39,26 +39,26 @@ export const timeline = [
   },
   {
     year: "2026",
-    text: "Invierte 60.000 dolares probando herramientas y modelos de negocio. Documenta todo el proceso en publico.",
+    text: "Invierte 60.000 dólares probando herramientas y modelos de negocio. Documenta todo el proceso en público.",
   },
 ];
 
 export const contactBlocks = [
   {
     title: "Email",
-    body: "Para colaboraciones, patrocinios y propuestas estrategicas.",
+    body: "Para colaboraciones, patrocinios y propuestas estratégicas.",
     cta: "Enviar mensaje",
     href: `mailto:${site.email}`,
   },
   {
     title: "YouTube",
-    body: "Videos sobre IA, negocios y lo que estoy construyendo en tiempo real.",
+    body: "Vídeos sobre IA, negocios y lo que estoy construyendo en tiempo real.",
     cta: "Abrir canal",
     href: site.youtubeUrl,
   },
   {
     title: "Instagram",
-    body: "El dia a dia del proceso. Sin filtro y sin produccion.",
+    body: "El día a día del proceso. Sin filtro y sin producción.",
     cta: "Abrir perfil",
     href: site.instagramUrl,
   },
