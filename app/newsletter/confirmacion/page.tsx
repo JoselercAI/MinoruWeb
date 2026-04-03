@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { site } from "@/lib/site";
 import styles from "./page.module.scss";
@@ -7,19 +8,6 @@ export const metadata: Metadata = {
   title: "Confirma Tu Email",
   description: `Confirma tu suscripción a la newsletter de ${site.name}.`,
 };
-
-const providers = [
-  {
-    href: "https://mail.google.com/mail/u/0/#inbox",
-    label: "Ir a Gmail a confirmarlo",
-    note: "",
-  },
-  {
-    href: "https://outlook.live.com/mail/0/",
-    label: "Ir a Outlook a confirmarlo",
-    note: "",
-  },
-];
 
 type Props = {
   searchParams?: Promise<{ estado?: string }>;
@@ -35,7 +23,7 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
         <section className="container">
           <div className={styles.hero}>
             <p>{active ? "Suscripción completada" : "Suscripción iniciada"}</p>
-            <h1>{active ? "Ya estás dentro." : "Casi estás dentro."}</h1>
+            <h1>{active ? "Ya estás dentro." : "¡IMPORTANTE!"}</h1>
             <span>
               {active
                 ? "Tu email ya ha quedado correctamente dado de alta en la lista."
@@ -54,8 +42,8 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
                   </>
                 ) : (
                   <>
-                    Busca un mensaje de <strong>{site.email}</strong>. Puede que esté en spam o en
-                    promociones.
+                    Busca un mensaje de <strong>{site.email}</strong>. Puede que esté en{" "}
+                    <strong>PROMOCIONES</strong> o en <strong>SPAM</strong>.
                   </>
                 )}
               </p>
@@ -67,22 +55,6 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
               ) : null}
             </div>
 
-            <div className={styles.grid}>
-              {providers.map((provider) => (
-                <a
-                  className={styles.provider}
-                  data-analytics={`newsletter_confirm_${provider.label.toLowerCase().replace(" ", "_")}`}
-                  href={provider.href}
-                  key={provider.label}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <strong>{provider.label}</strong>
-                  {provider.note ? <span>{provider.note}</span> : null}
-                </a>
-              ))}
-            </div>
-
             {active ? (
               <div className={styles.notice}>
                 <p>Si te has registrado con otro proveedor, no pasa nada. La suscripción ya está activa.</p>
@@ -91,7 +63,32 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
                 </a>
               </div>
             ) : (
-              <p className={styles.note}>Si usas otro proveedor, el proceso es el mismo.</p>
+              <>
+                <div className={styles.placeholder}>
+                  <span>Para mover a Principal</span>
+                  <Image
+                    alt="Guía visual para mover el correo desde promociones a Principal en Gmail"
+                    className={styles.guideImage}
+                    height={262}
+                    src="/images/gmail-move-to-inbox.png"
+                    width={1024}
+                  />
+                </div>
+
+                <div className={styles.grid}>
+                  <a
+                    className={styles.provider}
+                    data-analytics="newsletter_confirm_gmail"
+                    href="https://mail.google.com/mail/u/0/#inbox"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <strong>Abrir Gmail</strong>
+                  </a>
+                </div>
+
+                <p className={styles.note}>Si usas otro proveedor, el proceso es el mismo.</p>
+              </>
             )}
           </div>
         </section>
