@@ -69,7 +69,7 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
                   <Image
                     alt="Guía visual para mover el correo desde promociones a Principal en Gmail"
                     className={styles.guideImage}
-                    height={262}
+                    height={413}
                     src="/images/gmail-move-to-inbox.png"
                     width={1024}
                   />
