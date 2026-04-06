@@ -96,6 +96,16 @@
   box-shadow: 0 10px 30px rgba(19, 23, 27, 0.08);
 }
 
+.guideVideo {
+  width: min(100%, 22rem);
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(19, 23, 27, 0.08);
+  box-shadow: 0 10px 30px rgba(19, 23, 27, 0.08);
+  background: #000;
+}
+
 .grid {
   display: grid;
   width: min(100%, 22rem);

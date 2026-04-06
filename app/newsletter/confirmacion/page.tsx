@@ -66,6 +66,16 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
               <>
                 <div className={styles.placeholder}>
                   <span>Para mover a Principal</span>
+                  <video
+                    autoPlay
+                    className={styles.guideVideo}
+                    controls
+                    loop
+                    muted
+                    playsInline
+                  >
+                    <source src="/videos/confirmation-video.mp4" type="video/mp4" />
+                  </video>
                   <Image
                     alt="Guía visual para mover el correo desde promociones a Principal en Gmail"
                     className={styles.guideImage}
