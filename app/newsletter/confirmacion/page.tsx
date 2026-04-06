@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { site } from "@/lib/site";
+import { GuideVideo } from "./GuideVideo";
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
@@ -66,14 +67,7 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
               <>
                 <div className={styles.placeholder}>
                   <span>Para mover a Principal</span>
-                  <video
-                    className={styles.guideVideo}
-                    controls
-                    loop
-                    playsInline
-                  >
-                    <source src="/videos/confirmation-video.mp4" type="video/mp4" />
-                  </video>
+                  <GuideVideo />
                   <Image
                     alt="Guía visual para mover el correo desde promociones a Principal en Gmail"
                     className={styles.guideImage}

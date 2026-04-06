@@ -106,6 +106,41 @@
   background: #000;
 }
 
+.videoShell {
+  position: relative;
+  width: min(100%, 22rem);
+  margin: 0 auto;
+}
+
+.videoShell .guideVideo {
+  width: 100%;
+  margin: 0;
+}
+
+.videoTrigger {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding: 0;
+  cursor: pointer;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+}
+
+.videoTrigger span {
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  background: rgba(19, 23, 27, 0.72);
+  color: #fff;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .grid {
   display: grid;
   width: min(100%, 22rem);
