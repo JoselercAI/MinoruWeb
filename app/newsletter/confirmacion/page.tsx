@@ -34,7 +34,8 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
 
           <div className={`${styles.card} card`}>
             <div className={styles.copy}>
-              <h2>{active ? "Todo correcto." : "Solo queda un paso."}</h2>
+              <h2>{active ? "Todo correcto." : "Mira este vídeo"}</h2>
+              {!active ? <GuideVideo /> : null}
               <p>
                 {active ? (
                   <>
@@ -67,7 +68,6 @@ export default async function NewsletterConfirmationPage({ searchParams }: Props
               <>
                 <div className={styles.placeholder}>
                   <span>Para mover a Principal</span>
-                  <GuideVideo />
                   <Image
                     alt="Guía visual para mover el correo desde promociones a Principal en Gmail"
                     className={styles.guideImage}

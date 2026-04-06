@@ -97,7 +97,7 @@
 }
 
 .guideVideo {
-  width: min(100%, 22rem);
+  width: min(100%, 32rem);
   height: auto;
   margin: 0 auto;
   border-radius: var(--radius-md);
@@ -108,7 +108,7 @@
 
 .videoShell {
   position: relative;
-  width: min(100%, 22rem);
+  width: min(100%, 32rem);
   margin: 0 auto;
 }
 
@@ -132,13 +132,27 @@
 }
 
 .videoTrigger span {
-  padding: 0.8rem 1rem;
+  display: block;
+}
+
+.videoTriggerIcon {
+  position: relative;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 999px;
   background: rgba(19, 23, 27, 0.72);
-  color: #fff;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  box-shadow: 0 10px 30px rgba(19, 23, 27, 0.2);
+}
+
+.videoTriggerIcon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  border-top: 0.7rem solid transparent;
+  border-bottom: 0.7rem solid transparent;
+  border-left: 1.1rem solid #fff;
 }
 
 .grid {
@@ -194,5 +208,15 @@
 
   .grid {
     width: 100%;
+  }
+
+  .guideVideo,
+  .videoShell {
+    width: 100%;
+  }
+
+  .videoTriggerIcon {
+    width: 4rem;
+    height: 4rem;
   }
 }

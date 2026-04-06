@@ -27,7 +27,7 @@ export function GuideVideo() {
           onClick={handleStart}
           type="button"
         >
-          <span>Reproducir con sonido</span>
+          <span aria-hidden="true" className={styles.videoTriggerIcon} />
         </button>
       ) : null}
 
