@@ -60,7 +60,7 @@ export async function POST(request: Request) {
     return redirectToPage(
       request,
       response.ok ? "" : "error",
-      response.ok ? getNewsletterSuccessUrl(payload?.data?.status) : redirectPath,
+      response.ok ? getNewsletterSuccessUrl() : redirectPath,
     );
   } catch {
     return redirectToPage(request, "error", redirectPath);
