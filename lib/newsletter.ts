@@ -31,16 +31,8 @@ export function getNewsletterRedirectPath(value: FormDataEntryValue | null) {
   return value;
 }
 
-export function getNewsletterPendingPath() {
-  return "/newsletter/confirmacion";
-}
-
-export function getNewsletterSuccessUrl(status?: string) {
-  if (status === "active") {
-    return "/newsletter/confirmado";
-  }
-
-  return getNewsletterPendingPath();
+export function getNewsletterSuccessUrl() {
+  return "/newsletter/confirmado";
 }
 
 export function getAttributionFromFormData(data: FormData): AttributionData {
