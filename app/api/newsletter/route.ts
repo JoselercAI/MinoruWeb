@@ -49,7 +49,6 @@ export async function POST(request: Request) {
         },
         body: JSON.stringify({
           email,
-          double_opt_override: "on",
           reactivate_existing: true,
           ...(customFields.length ? { custom_fields: customFields } : {}),
         }),
