@@ -26,7 +26,7 @@ export default async function NewsletterPage({ searchParams }: Props) {
             <p>Newsletter</p>
             <h1>Cada semana en tu email.</h1>
             <span>
-              El 90% del contenido de IA en espanol es ruido. Esto es lo que queda cuando lo
+              El 90% del contenido de IA en español es ruido. Esto es lo que queda cuando lo
               eliminas.
             </span>
           </div>
@@ -38,7 +38,7 @@ export default async function NewsletterPage({ searchParams }: Props) {
                 que merece la pena saber antes que el resto.
               </p>
               <ul className={styles.points}>
-                <li>Lo que funciona. Lo que no. Con numeros reales.</li>
+                <li>Lo que funciona. Lo que no. Con números reales.</li>
                 <li>Herramientas probadas con mi propio dinero.</li>
                 <li>Solo recomiendo lo que he probado yo mismo.</li>
               </ul>

@@ -148,7 +148,7 @@ export default async function Home({ searchParams }: Props) {
           <div className={`${styles.newsletter} card`}>
             <div className={styles.newsletterCopy}>
               <p>
-                El 90% del contenido de IA en espanol es ruido.
+                El 90% del contenido de IA en español es ruido.
               </p>
               <p>
                 Cada semana te cuento que estoy construyendo, que herramientas estoy probando y
