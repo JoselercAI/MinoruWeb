@@ -18,7 +18,7 @@ const redirectToPage = (request: Request, state: string, pathname: string) => {
     url.hash = "newsletter";
   }
 
-  return NextResponse.redirect(url);
+  return NextResponse.redirect(url, { status: 303 });
 };
 
 export async function POST(request: Request) {
