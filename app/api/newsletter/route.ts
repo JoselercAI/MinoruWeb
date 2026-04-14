@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { recordBadgerEvent } from "@/lib/badger";
 import {
   addBeehiivSubscriptionTags,
   getAttributionFromFormData,
@@ -41,7 +42,26 @@ const isRateLimited = (request: Request) => {
   recent.push(now);
   attempts.set(key, recent);
 
-  return recent.length > maxAttemptsPerWindow;
+  return recent.length > maxAttemptsPerWindow ? recent.length : 0;
+};
+
+const getRequestMeta = (request: Request) => {
+  const url = new URL(request.url);
+  const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+  const headers = Object.fromEntries(
+    ["accept", "accept-language", "referer", "origin", "user-agent", "x-forwarded-for"]
+      .map((name) => [name, request.headers.get(name) || ""])
+      .filter((entry) => entry[1]),
+  );
+
+  return {
+    ip: forwarded,
+    userAgent: request.headers.get("user-agent") || "unknown",
+    referer: request.headers.get("referer") || "",
+    origin: request.headers.get("origin") || "",
+    path: `${url.pathname}${url.search}`,
+    headers,
+  };
 };
 
 const verifyTurnstile = async (request: Request, token: string) => {
@@ -86,17 +106,73 @@ export async function POST(request: Request) {
   const publicationId = getBeehiivPublicationId();
   const apiKey = process.env.BEEHIIV_API_KEY;
   const attribution = getAttributionFromFormData(data);
+  const meta = getRequestMeta(request);
 
   if (typeof honeypot === "string" && honeypot.trim()) {
+    await recordBadgerEvent({
+      type: "honeypot",
+      attribution,
+      email: typeof email === "string" ? email : undefined,
+      headers: meta.headers,
+      honeypotValue: honeypot,
+      ip: meta.ip,
+      origin: meta.origin,
+      path: meta.path,
+      redirectPath,
+      referer: meta.referer,
+      turnstile: {
+        enabled: Boolean(process.env.TURNSTILE_SECRET_KEY),
+        tokenPresent: typeof turnstileToken === "string" && turnstileToken.length > 0,
+      },
+      userAgent: meta.userAgent,
+    });
     return redirectToPage(request, "blocked", redirectPath);
   }
 
-  if (isRateLimited(request)) {
+  const attemptCount = isRateLimited(request);
+
+  if (attemptCount) {
+    await recordBadgerEvent({
+      type: "rate_limited",
+      attribution,
+      email: typeof email === "string" ? email : undefined,
+      headers: meta.headers,
+      ip: meta.ip,
+      origin: meta.origin,
+      path: meta.path,
+      rateLimit: {
+        attempts: attemptCount,
+        windowMs: rateWindowMs,
+      },
+      redirectPath,
+      referer: meta.referer,
+      turnstile: {
+        enabled: Boolean(process.env.TURNSTILE_SECRET_KEY),
+        tokenPresent: typeof turnstileToken === "string" && turnstileToken.length > 0,
+      },
+      userAgent: meta.userAgent,
+    });
     return redirectToPage(request, "rate_limited", redirectPath);
   }
 
   if (process.env.TURNSTILE_SECRET_KEY) {
     if (typeof turnstileToken !== "string" || !(await verifyTurnstile(request, turnstileToken))) {
+      await recordBadgerEvent({
+        type: "turnstile_failed",
+        attribution,
+        email: typeof email === "string" ? email : undefined,
+        headers: meta.headers,
+        ip: meta.ip,
+        origin: meta.origin,
+        path: meta.path,
+        redirectPath,
+        referer: meta.referer,
+        turnstile: {
+          enabled: true,
+          tokenPresent: typeof turnstileToken === "string" && turnstileToken.length > 0,
+        },
+        userAgent: meta.userAgent,
+      });
       return redirectToPage(request, "blocked", redirectPath);
     }
   }
