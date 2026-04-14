@@ -5,6 +5,8 @@ const acquisitionLabelField = "MW Acquisition Label";
 const newsletterState = {
   error: "No hemos podido procesar tu suscripción.",
   missing: "Falta configurar Beehiiv para activar el formulario real.",
+  blocked: "No hemos podido validar el envío. Inténtalo de nuevo.",
+  rate_limited: "Hemos recibido demasiados intentos seguidos. Espera un poco y vuelve a intentarlo.",
 };
 
 export function getNewsletterMessage(value?: string | null) {
