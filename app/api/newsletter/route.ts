@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 import {
+  addBeehiivSubscriptionTags,
   getAttributionFromFormData,
   getBeehiivPublicationId,
   getBeehiivCustomFieldPayload,
+  getBeehiivSubscriptionPayload,
   getNewsletterRedirectPath,
   getNewsletterSuccessUrl,
 } from "@/lib/newsletter";
@@ -50,12 +52,17 @@ export async function POST(request: Request) {
         body: JSON.stringify({
           email,
           reactivate_existing: true,
+          ...getBeehiivSubscriptionPayload(attribution),
           ...(customFields.length ? { custom_fields: customFields } : {}),
         }),
       },
     );
 
-    const payload = response.ok ? ((await response.json()) as { data?: { status?: string } }) : null;
+    const payload = response.ok ? ((await response.json()) as { data?: { id?: string } }) : null;
+
+    if (response.ok && payload?.data?.id) {
+      await addBeehiivSubscriptionTags(apiKey, publicationId, payload.data.id, attribution);
+    }
 
     return redirectToPage(
       request,

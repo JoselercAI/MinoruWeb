@@ -1,5 +1,7 @@
 import { attributionFieldLabels, attributionFieldNames, type AttributionData } from "./tracking";
 
+const acquisitionLabelField = "MW Acquisition Label";
+
 const newsletterState = {
   error: "No hemos podido procesar tu suscripción.",
   missing: "Falta configurar Beehiiv para activar el formulario real.",
@@ -35,6 +37,20 @@ export function getNewsletterSuccessUrl() {
   return "/newsletter/confirmado";
 }
 
+const buildAcquisitionLabel = (attribution: AttributionData) => {
+  const parts = [attribution.utm_source, attribution.utm_campaign, attribution.utm_term].filter(Boolean);
+  return parts.length ? parts.join(" | ") : "";
+};
+
+const sanitizeTag = (value: string) =>
+  value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+
 export function getAttributionFromFormData(data: FormData): AttributionData {
   return attributionFieldNames.reduce<AttributionData>((acc, field) => {
     const value = data.get(field);
@@ -53,19 +69,80 @@ type BeehiivCustomFieldResponse = {
   }>;
 };
 
+type BeehiivCustomFieldPayload = {
+  name: string;
+  value: string;
+};
+
 const getBeehiivHeaders = (apiKey: string) => ({
   Authorization: `Bearer ${apiKey}`,
   "Content-Type": "application/json",
 });
+
+export function getBeehiivSubscriptionPayload(attribution: AttributionData) {
+  return {
+    ...(attribution.utm_source ? { utm_source: attribution.utm_source } : {}),
+    ...(attribution.utm_medium ? { utm_medium: attribution.utm_medium } : {}),
+    ...(attribution.utm_campaign ? { utm_campaign: attribution.utm_campaign } : {}),
+    ...(attribution.utm_term ? { utm_term: attribution.utm_term } : {}),
+    ...(attribution.utm_content ? { utm_content: attribution.utm_content } : {}),
+    ...(attribution.referrer ? { referring_site: attribution.referrer } : {}),
+  };
+}
+
+export function getBeehiivSubscriptionTags(attribution: AttributionData) {
+  if (attribution.utm_source === "youtube" && attribution.utm_campaign) {
+    return [`yt_${sanitizeTag(attribution.utm_campaign)}`];
+  }
+
+  if (attribution.utm_campaign) {
+    return [`camp_${sanitizeTag(attribution.utm_campaign)}`];
+  }
+
+  return [];
+}
+
+export async function addBeehiivSubscriptionTags(
+  apiKey: string,
+  publicationId: string,
+  subscriptionId: string,
+  attribution: AttributionData,
+) {
+  const tags = getBeehiivSubscriptionTags(attribution);
+
+  if (!tags.length) {
+    return;
+  }
+
+  await fetch(
+    `https://api.beehiiv.com/v2/publications/${publicationId}/subscriptions/${subscriptionId}/tags`,
+    {
+      method: "POST",
+      headers: getBeehiivHeaders(apiKey),
+      body: JSON.stringify({ tags }),
+    },
+  );
+}
 
 export async function getBeehiivCustomFieldPayload(
   apiKey: string,
   publicationId: string,
   attribution: AttributionData,
 ) {
-  const entries = Object.entries(attribution).filter(
-    (entry): entry is [keyof AttributionData, string] => Boolean(entry[1]),
-  );
+  const entries: BeehiivCustomFieldPayload[] = Object.entries(attribution)
+    .filter((entry): entry is [keyof AttributionData, string] => Boolean(entry[1]))
+    .map(([key, value]) => ({
+      name: attributionFieldLabels[key],
+      value,
+    }));
+  const acquisitionLabel = buildAcquisitionLabel(attribution);
+
+  if (acquisitionLabel) {
+    entries.push({
+      name: acquisitionLabelField,
+      value: acquisitionLabel,
+    });
+  }
 
   if (!entries.length) {
     return [];
@@ -89,8 +166,8 @@ export async function getBeehiivCustomFieldPayload(
       });
     }
 
-    for (const [key] of entries) {
-      const display = attributionFieldLabels[key];
+    for (const entry of entries) {
+      const display = entry.name;
 
       if (existing.has(display)) {
         continue;
@@ -114,9 +191,9 @@ export async function getBeehiivCustomFieldPayload(
   }
 
   return entries
-    .filter(([key]) => existing.has(attributionFieldLabels[key]))
-    .map(([key, value]) => ({
-      name: attributionFieldLabels[key],
-      value,
+    .filter((entry) => existing.has(entry.name))
+    .map((entry) => ({
+      name: entry.name,
+      value: entry.value,
     }));
 }
