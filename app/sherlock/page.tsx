@@ -3,6 +3,8 @@ import { Footer } from "@/components/Footer";
 import { getBadgerDashboard } from "@/lib/badger";
 import styles from "./page.module.scss";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Sherlock",
   description: "Panel interno de detecciones del honeypot y filtros anti-bot.",
