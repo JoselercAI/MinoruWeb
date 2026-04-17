@@ -11,7 +11,7 @@ import {
 } from "@/lib/newsletter";
 
 const rateWindowMs = 10 * 60 * 1000;
-const maxAttemptsPerWindow = 6;
+const maxAttemptsPerWindow = 8;
 const attempts = new Map<string, number[]>();
 
 const redirectToPage = (request: Request, state: string, pathname: string) => {
