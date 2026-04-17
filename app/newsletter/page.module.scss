@@ -83,8 +83,14 @@
 
 .form {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.form :global(iframe) {
+  display: block;
+  width: min(100%, 32rem) !important;
+  max-width: 100%;
 }
 
 .input {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { BeehiivForm } from "@/components/BeehiivForm";
 import { Footer } from "@/components/Footer";
-import { NewsletterForm } from "@/components/NewsletterForm";
 import { getNewsletterMessage } from "@/lib/newsletter";
 import { site } from "@/lib/site";
 import styles from "./page.module.scss";
@@ -43,11 +43,7 @@ export default async function NewsletterPage({ searchParams }: Props) {
                 <li>Solo recomiendo lo que he probado yo mismo.</li>
               </ul>
             </div>
-            <NewsletterForm
-              className={styles.form}
-              inputClassName={styles.input}
-              redirect="/newsletter"
-            />
+            <BeehiivForm className={styles.form} />
             {message ? <div className={styles.notice}>{message}</div> : null}
             <p className={styles.proof}>+12.000 emprendedores ya lo reciben</p>
           </div>

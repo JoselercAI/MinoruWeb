@@ -1,8 +1,8 @@
+import { BeehiivForm } from "@/components/BeehiivForm";
 import Image from "next/image";
 import { Button } from "@/components/Button";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { NewsletterForm } from "@/components/NewsletterForm";
 import { Section } from "@/components/Section";
 import { getNewsletterMessage } from "@/lib/newsletter";
 import { about, site, timeline } from "@/lib/site";
@@ -156,7 +156,7 @@ export default async function Home({ searchParams }: Props) {
               </p>
               {message ? <div className={styles.notice}>{message}</div> : null}
             </div>
-            <NewsletterForm className={styles.form} inputClassName={styles.input} redirect="/" />
+            <BeehiivForm className={styles.form} />
             <p className={styles.newsletterProof}>+12.000 emprendedores ya lo reciben</p>
           </div>
         </Section>
