@@ -83,12 +83,14 @@
 
 .form {
   display: flex;
-  justify-content: flex-start;
-  width: min(100%, 38rem);
+  justify-content: center;
+  width: 100%;
 }
 
 .form :global(iframe) {
   display: block;
+  max-width: 100%;
+  margin-inline: auto;
 }
 
 .input {
