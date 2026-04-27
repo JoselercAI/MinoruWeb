@@ -166,14 +166,26 @@
 }
 
 .form {
-  width: min(100%, 40rem);
+  display: flex;
+  justify-content: center;
+  width: 100%;
   margin: 0 auto;
 }
 
 .form :global(iframe) {
   display: block;
-  width: 100% !important;
   max-width: 100%;
+  margin-inline: auto;
+}
+
+@media (min-width: 921px) {
+  .form {
+    min-height: 82px;
+  }
+
+  .form :global(iframe) {
+    flex: 0 0 auto;
+  }
 }
 
 .input {
@@ -198,8 +210,7 @@
   .aboutGrid,
   .timeline,
   .youtubeTop,
-  .videoGrid,
-  .form {
+  .videoGrid {
     grid-template-columns: 1fr;
   }
 

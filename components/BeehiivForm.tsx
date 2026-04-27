@@ -27,8 +27,8 @@ export function BeehiivForm({ className }: Props) {
           scrolling="no"
           src="https://subscribe-forms.beehiiv.com/3268c32d-d6e1-4f2b-905f-95c606d6a362"
           style={{
-            width: "100%",
-            height: "56px",
+            width: "407px",
+            height: "82px",
             margin: 0,
             borderRadius: "0px",
             backgroundColor: "transparent",
