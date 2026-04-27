@@ -168,24 +168,12 @@
 .form {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: min(100%, 38rem);
   margin: 0 auto;
 }
 
 .form :global(iframe) {
   display: block;
-  max-width: 100%;
-  margin-inline: auto;
-}
-
-@media (min-width: 921px) {
-  .form {
-    min-height: 82px;
-  }
-
-  .form :global(iframe) {
-    flex: 0 0 auto;
-  }
 }
 
 .input {
