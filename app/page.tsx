@@ -151,8 +151,8 @@ export default async function Home({ searchParams }: Props) {
                 El 90% del contenido de IA en español es ruido.
               </p>
               <p>
-                Cada semana te cuento que estoy construyendo, que herramientas estoy probando y
-                que merece la pena saber antes que el resto.
+              Cada semana te cuento qué estoy construyendo, qué herramientas funcionan de verdad 
+              y cuáles no vale la pena ni tocar.
               </p>
               {message ? <div className={styles.notice}>{message}</div> : null}
             </div>

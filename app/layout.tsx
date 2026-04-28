@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Arquitecto digital`,
+    default: site.name,
     template: `%s | ${site.name}`,
   },
   description: site.description,

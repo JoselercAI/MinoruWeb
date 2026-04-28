@@ -34,8 +34,8 @@ export default async function NewsletterPage({ searchParams }: Props) {
             <div className={styles.copy}>
               <h2>El email semanal de Minoru</h2>
               <p>
-                Cada semana te cuento que estoy construyendo, que herramientas estoy probando y
-                que merece la pena saber antes que el resto.
+              Cada semana te cuento qué estoy construyendo, qué herramientas funcionan de verdad 
+              y cuáles no vale la pena ni tocar.
               </p>
               <ul className={styles.points}>
                 <li>Lo que funciona. Lo que no. Con números reales.</li>
